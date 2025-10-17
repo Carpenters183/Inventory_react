@@ -1,0 +1,193 @@
+{
+  "info": {
+    "name": "Inventory API",
+    "_postman_id": "inventory-api-2025",
+    "description": "Postman collection untuk API Laravel Inventory",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Barang",
+      "item": [
+        {
+          "name": "GET All Barang",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/barang",
+              "protocol": "http",
+              "host": ["127.0.0.1"],
+              "port": "8000",
+              "path": ["api","barang"]
+            }
+          }
+        },
+        {
+          "name": "POST Barang",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"kode_barang\": \"BRG001\",\n    \"nama_barang\": \"Laptop Asus\",\n    \"id_kategori\": 1,\n    \"stok\": 10,\n    \"satuan\": \"pcs\",\n    \"lokasi\": \"Gudang 1\",\n    \"harga_beli\": 5000000,\n    \"harga_jual\": 6000000,\n    \"tanggal_input\": \"2025-10-07 10:00:00\"\n}"
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/barang",
+              "protocol": "http",
+              "host": ["127.0.0.1"],
+              "port": "8000",
+              "path": ["api","barang"]
+            }
+          }
+        },
+        {
+          "name": "PUT Barang",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"stok\": 15,\n    \"lokasi\": \"Gudang 2\"\n}"
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/barang/1",
+              "protocol": "http",
+              "host": ["127.0.0.1"],
+              "port": "8000",
+              "path": ["api","barang","1"]
+            }
+          }
+        },
+        {
+          "name": "DELETE Barang",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/barang/1",
+              "protocol": "http",
+              "host": ["127.0.0.1"],
+              "port": "8000",
+              "path": ["api","barang","1"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Kategori",
+      "item": [
+        {
+          "name": "POST Kategori",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nama_kategori\": \"Elektronik\",\n  \"deskripsi\": \"Semua barang elektronik\"\n}"
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/kategori",
+              "protocol": "http",
+              "host": ["127.0.0.1"],
+              "port": "8000",
+              "path": ["api","kategori"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Transaksi Masuk",
+      "item": [
+        {
+          "name": "POST Transaksi Masuk",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id_barang\": 1,\n  \"tanggal_masuk\": \"2025-10-07 09:30:00\",\n  \"jumlah\": 5,\n  \"keterangan\": \"Pembelian dari toko ABC\",\n  \"user_input\": \"Admin\"\n}"
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/transaksi-masuk",
+              "protocol": "http",
+              "host": ["127.0.0.1"],
+              "port": "8000",
+              "path": ["api","transaksi-masuk"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Transaksi Keluar",
+      "item": [
+        {
+          "name": "POST Transaksi Keluar",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id_barang\": 1,\n  \"tanggal_keluar\": \"2025-10-07 11:00:00\",\n  \"jumlah\": 2,\n  \"tujuan\": \"Staff IT\",\n  \"keterangan\": \"Dipinjam sementara\",\n  \"user_input\": \"Admin\"\n}"
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/transaksi-keluar",
+              "protocol": "http",
+              "host": ["127.0.0.1"],
+              "port": "8000",
+              "path": ["api","transaksi-keluar"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "User",
+      "item": [
+        {
+          "name": "POST User",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"admin\",\n  \"password\": \"admin123\",\n  \"nama_lengkap\": \"Administrator\",\n  \"role\": \"admin\",\n  \"last_login\": \"2025-10-07 10:00:00\"\n}"
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/user",
+              "protocol": "http",
+              "host": ["127.0.0.1"],
+              "port": "8000",
+              "path": ["api","user"]
+            }
+          }
+        },
+        {
+          "name": "PUT User",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"password\": \"newpassword\",\n  \"nama_lengkap\": \"Admin Baru\"\n}"
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/user/1",
+              "protocol": "http",
+              "host": ["127.0.0.1"],
+              "port": "8000",
+              "path": ["api","user","1"]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
